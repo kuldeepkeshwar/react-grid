@@ -1,0 +1,41 @@
+.grid {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.grid .list {
+  margin: 10px;
+  background-color: darkgray;
+}
+
+.grid .filter {
+  margin: 10px;
+}
+
+.grid .pagination {
+  margin: 10px;
+  display: flex;
+  align-self: flex-end;
+}
+
+.pagination ul {
+  list-style-type: none;
+  margin: 0px;
+  padding: 0px;
+}
+
+.pagination a {
+  color: black;
+  padding: 0px 8px;
+  text-decoration: none;
+}
+
+span {
+  border-bottom: 3px solid transparent;
+}
+
+.prev,
+.next {
+  transition: all 600ms ease;
+}
+
