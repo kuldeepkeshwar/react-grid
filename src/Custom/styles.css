@@ -1,4 +1,7 @@
-
+.custom.grid {
+  color: brown;
+  font-size: 15px;
+}
 .grid .list.custom {
   background-color: darkkhaki;
 }

@@ -8,8 +8,8 @@ export default ({ headers, data }) => {
         </tr>
       </thead>
       <tbody>
-        {data.map(row => (
-          <tr>
+        {data.map((row, i) => (
+          <tr key={i}>
             {headers.map(header => <td key={header.key}>{row[header.key]}</td>)}
           </tr>
         ))}
