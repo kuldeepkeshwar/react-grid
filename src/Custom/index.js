@@ -1,4 +1,5 @@
 // import Grid from './Grid';
 import List from './List';
 import Pagination from './Pagination';
-export { List, Pagination };
+import Layout from './Layout';
+export { List, Pagination, Layout };

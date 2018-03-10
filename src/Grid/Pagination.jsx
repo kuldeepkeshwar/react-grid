@@ -20,7 +20,7 @@ export default class Paginaton extends React.Component {
     return (
       <div className="pagination">
         <span>
-          <a class="prev" onClick={this.onPrevious}>
+          <a className="prev" onClick={this.onPrevious}>
             Previous
           </a>
         </span>
@@ -33,7 +33,7 @@ export default class Paginaton extends React.Component {
           </li>
         </ul>
         <span>
-          <a class="next" onClick={this.onNext}>
+          <a className="next" onClick={this.onNext}>
             Next
           </a>
         </span>
