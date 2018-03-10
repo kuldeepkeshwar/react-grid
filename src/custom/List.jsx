@@ -1,6 +1,6 @@
 import React from 'react';
-export default ({ headers, data }) => (
-  <table className="list">
+export default ({ className, headers, data }) => (
+  <table className={`${className} custom list`}>
     <thead>
       <tr>{headers.map(header => <td key={header.key}>{header.label}</td>)}</tr>
     </thead>
