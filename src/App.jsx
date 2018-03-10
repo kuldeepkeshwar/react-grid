@@ -5,9 +5,9 @@ import {
   List as CustomList,
   Pagination as CustomPagination,
   Layout as CustomLayout
-} from 'Custom';
+} from 'custom';
 import './styles.css';
-import './Custom/styles.css';
+import './custom/styles.css';
 import { actions, selectors } from 'reducers/user';
 import { connect } from 'react-redux';
 const styles = {
@@ -89,6 +89,8 @@ class App extends React.Component {
   }
 }
 const props = state => ({
+  loading: selectors.getState(state).loading,
+  error: selectors.getState(state).error,
   data: selectors.getState(state).data,
   pagination: selectors.getState(state).pagination,
   filters: selectors.getState(state).filters

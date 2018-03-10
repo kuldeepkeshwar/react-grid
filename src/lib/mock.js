@@ -1,6 +1,6 @@
-const total = 100;
+const total = 105;
 const records = [];
-for (let i = 0; i < 105; i++) {
+for (let i = 0; i < total; i++) {
   records.push({
     id: i + 1,
     name: `User ${i + 1}`,

@@ -1,3 +1,4 @@
+import { apiTypeCreator, simpleActionCreator } from 'lib/utils';
 const intialState = {
   filters: {
     id: ''
@@ -10,43 +11,24 @@ const intialState = {
     total: 0
   }
 };
-
+const userTypes = apiTypeCreator('USER');
 const types = {
   CHANGE_FILTER: 'CHANGE_FILTER',
   CHANGE_PAGE: 'CHANGE_PAGE',
-  USER: {
-    FETCH: 'USER_FETCH',
-    SUCESS: 'USER_SUCESS',
-    ERROR: 'USER_ERROR'
-  }
+  ...userTypes
 };
+
 const actions = {
-  changeFilter: payload => ({
-    type: types.CHANGE_FILTER,
-    payload
-  }),
-  changePage: payload => ({
-    type: types.CHANGE_PAGE,
-    payload
-  }),
-  fetchUser: payload => ({
-    type: types.USER.FETCH,
-    payload
-  }),
-  userSuccess: payload => ({
-    type: types.USER.SUCESS,
-    payload
-  }),
-  userError: payload => ({
-    type: types.USER.ERROR,
-    payload
-  })
+  changeFilter: simpleActionCreator(types.CHANGE_FILTER),
+  changePage: simpleActionCreator(types.CHANGE_PAGE),
+  fetchUser: simpleActionCreator(types.USER.FETCH),
+  userSuccess: simpleActionCreator(types.USER.SUCCESS),
+  userError: simpleActionCreator(types.USER.ERROR)
 };
 const selectors = {
   getState: state => state.app.user
 };
 export default (state = intialState, { type, payload }) => {
-  console.log(type, payload);
   switch (type) {
     case types.CHANGE_FILTER: {
       return {
@@ -71,7 +53,7 @@ export default (state = intialState, { type, payload }) => {
         error: false
       };
     }
-    case types.USER.SUCESS: {
+    case types.USER.SUCCESS: {
       const { data, total } = payload;
       return {
         ...state,

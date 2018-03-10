@@ -10,13 +10,22 @@ export const apiCaller = (api, success, failure) => {
     }
   };
 };
-
 export const simpleActionCreator = type => payload => ({
   type,
   payload
 });
 export const apiTypeCreator = type => ({
-  FETCH: `FETCH_${type}`,
-  SUCCESS: `FETCH_${type}_SUCCESS`,
-  FAILURE: `FETCH_${type}_FAILURE`
+  [type]: {
+    FETCH: `${type}_FETCH`,
+    SUCCESS: `${type}_SUCCESS`,
+    ERROR: `${type}_ERROR`
+  }
 });
+
+export const gridResponseParser = (limit, action) => resp => {
+  const total = Math.ceil(resp.total / limit);
+  return action({
+    data: resp.data,
+    total
+  });
+};

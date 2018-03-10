@@ -1,6 +1,9 @@
-.custom.grid {
+.grid.custom {
   color: brown;
   font-size: 15px;
+}
+.list-container {
+  min-height: 213px;
 }
 .grid .list.custom {
   background-color: darkkhaki;

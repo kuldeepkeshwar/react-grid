@@ -1,19 +1,9 @@
 import React from 'react';
 import DefaultPagination from './Pagination';
 import DefaultList from './List';
+import DefaultLayout from './Layout';
+import withProps from 'decorators/with-props';
 
-const withProps = (Component, baseProps) => {
-  return props => <Component {...baseProps} {...props} />;
-};
-const DefaultLayout = ({ components: { Filter, List, Pagination } }) => {
-  return (
-    <div className="grid">
-      <Filter />
-      <List />
-      <Pagination />
-    </div>
-  );
-};
 const Grid = ({
   meta: { headers, renderer },
   data,
@@ -27,7 +17,6 @@ const Grid = ({
   const List = renderer.list || DefaultList;
   const Pagination = renderer.pagination || DefaultPagination;
   const Layout = renderer.layout || DefaultLayout;
-
   const props = {
     ...rest,
     data,

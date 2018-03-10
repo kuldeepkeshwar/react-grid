@@ -1,18 +1,13 @@
 import { takeLatest, put, select } from 'redux-saga/effects';
+import { delay } from 'redux-saga';
 import { types, selectors, actions } from 'reducers/user';
 import { fetchUser } from 'lib/api';
-import { apiCaller } from 'lib/utils';
+import { apiCaller, gridResponseParser } from 'lib/utils';
 
 const limit = 10;
 const userApi = apiCaller(
   fetchUser,
-  resp => {
-    const total = Math.ceil(resp.total / limit);
-    return actions.userSuccess({
-      data: resp.data,
-      total
-    });
-  },
+  gridResponseParser(limit, actions.userSuccess),
   actions.userError
 );
 
@@ -20,6 +15,7 @@ function* userWorker(action) {
   const { filters, pagination: { current } } = yield select(selectors.getState);
   const offset = Math.max(current - 1, 0) * limit;
   yield put(actions.fetchUser());
+  yield delay(200);
   yield userApi({ limit, offset, filters });
 }
 function* changeFilterWorker(action) {
