@@ -37,16 +37,16 @@ class App extends React.Component {
   static limit = 10;
   static defaultMeta = {
     renderer: {
-      filter: Filter
+      Filter
     },
     headers: headers
   };
   static customMeta = {
     renderer: {
-      filter: Filter,
-      list: CustomList,
-      pagination: CustomPagination,
-      layout: CustomLayout
+      Filter,
+      List: CustomList,
+      Pagination: CustomPagination,
+      Layout: CustomLayout
     },
     headers: headers
   };

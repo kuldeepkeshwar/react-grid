@@ -5,7 +5,15 @@ import DefaultLayout from './Layout';
 import withProps from 'decorators/with-props';
 
 const Grid = ({
-  meta: { headers, renderer },
+  meta: {
+    headers,
+    renderer: {
+      Filter,
+      List = DefaultList,
+      Pagination = DefaultPagination,
+      Layout = DefaultLayout
+    }
+  },
   data,
   filters,
   pagination,
@@ -13,10 +21,6 @@ const Grid = ({
   onPageChange,
   ...rest
 }) => {
-  const Filter = renderer.filter;
-  const List = renderer.list || DefaultList;
-  const Pagination = renderer.pagination || DefaultPagination;
-  const Layout = renderer.layout || DefaultLayout;
   const props = {
     ...rest,
     data,
