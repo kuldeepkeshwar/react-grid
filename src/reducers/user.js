@@ -21,9 +21,9 @@ const types = {
 const actions = {
   changeFilter: simpleActionCreator(types.CHANGE_FILTER),
   changePage: simpleActionCreator(types.CHANGE_PAGE),
-  fetchUser: simpleActionCreator(types.USER.FETCH),
-  userSuccess: simpleActionCreator(types.USER.SUCCESS),
-  userError: simpleActionCreator(types.USER.ERROR)
+  fetch: simpleActionCreator(types.USER.FETCH),
+  fetchSuccess: simpleActionCreator(types.USER.SUCCESS),
+  fetchError: simpleActionCreator(types.USER.ERROR)
 };
 const selectors = {
   getState: state => state.app.user
