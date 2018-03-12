@@ -7,14 +7,14 @@ import { apiCaller, gridResponseParser } from 'lib/utils';
 const limit = 10;
 const userApi = apiCaller(
   fetchUser,
-  gridResponseParser(limit, actions.userSuccess),
-  actions.userError
+  gridResponseParser(limit, actions.fetchSuccess),
+  actions.fetchError
 );
 
 function* userWorker(action) {
   const { filters, pagination: { current } } = yield select(selectors.getState);
   const offset = Math.max(current - 1, 0) * limit;
-  yield put(actions.fetchUser());
+  yield put(actions.fetch());
   yield delay(200);
   yield userApi({ limit, offset, filters });
 }
